@@ -1,0 +1,18 @@
+{
+  "datacenter": "DWS-Toolbox",
+  "data_dir": "data",
+  "log_level": "DEBUG",
+  //"node_name": "foobar", // get server name instead
+  "server": true
+
+    // without https for test
+  //"addresses": {
+  //  "https": "0.0.0.0"
+  //},
+  //"ports": {
+  //  "https": 8501
+  //},
+  //"key_file": "/etc/pki/tls/private/my.key",
+  //"cert_file": "/etc/pki/tls/certs/my.crt",
+  //"ca_file": "/etc/pki/tls/certs/ca-bundle.crt"
+}
