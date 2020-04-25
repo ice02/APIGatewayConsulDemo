@@ -23,7 +23,7 @@ namespace APIService3.Controllers
         {
             var port = Request.Host.Port;
 
-            return new string[] { "value1", "value2", port.Value.ToString() };
+            return new string[] { "value1", "value2", port.Value.ToString(), "Netcore 3.1" };
         }
     }
 }

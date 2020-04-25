@@ -1,0 +1,41 @@
+{
+  "ReRoutes": [
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "ServiceName": "ToolboxAPI",
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
+      "UpstreamPathTemplate": "/{url}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "ReRoutesCaseSensitive": false,
+      "QoSOptions": {
+        "ExceptionsAllowedBeforeBreaking": 3,
+        "DurationOfBreak": 1000,
+        "TimeoutValue": 5000
+      }
+    }
+  ],
+  "GlobalConfiguration": {
+    "ServiceDiscoveryProvider": {
+      "Type": "Eureka"
+    }
+  },
+  "SwaggerEndPoints": [
+    {
+      "Key": "ToolboxAPI",
+      "Config": [
+        {
+          "Name": "Toolbox Service API",
+          "Version": "v1",
+          "Service": {
+            "Name": "ToolboxAPI",
+            "Path": "/swagger/v1/swagger.json"
+          }
+        }
+      ]
+    }
+  ]
+}

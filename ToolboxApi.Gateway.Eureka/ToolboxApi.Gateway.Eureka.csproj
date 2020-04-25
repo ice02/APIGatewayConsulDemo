@@ -11,6 +11,7 @@
     <PackageReference Include="MMLib.SwaggerForOcelot" Version="1.10.5" />
     <PackageReference Include="Ocelot" Version="15.0.6" />
     <PackageReference Include="Ocelot.Administration" Version="15.0.6" />
+    <PackageReference Include="Ocelot.Provider.Eureka" Version="15.0.6" />
     <PackageReference Include="Ocelot.Provider.Polly" Version="15.0.6" />
   </ItemGroup>
 

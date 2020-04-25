@@ -1,24 +1,100 @@
 {
   "ReRoutes": [
     {
-      "UseServiceDiscovery": true,
       "DownstreamPathTemplate": "/{url}",
-      "DownstreamScheme": "http",
-      "ServiceName": "ToolboxAPI",
-      "LoadBalancerOptions": {
-        "Type": "RoundRobin"
-      },
       "UpstreamPathTemplate": "/{url}",
-      "UpstreamHttpMethod": [ "Get" ],
-      "ReRoutesCaseSensitive": false
+      "UpstreamHttpMethod": [
+        "Get"
+      ],
+      "ServiceName": "ToolboxAPI",
+      "ServiceNamespace": null,
+      "DownstreamScheme": "http",
+      "QoSOptions": {
+        "ExceptionsAllowedBeforeBreaking": 3,
+        "DurationOfBreak": 1000,
+        "TimeoutValue": 5000
+      },
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin",
+        "Key": null,
+        "Expiry": 0
+      },
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": false,
+        "Period": null,
+        "PeriodTimespan": 0.0,
+        "Limit": 0
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": null,
+        "AllowedScopes": []
+      },
+      "HttpHandlerOptions": {
+        "AllowAutoRedirect": false,
+        "UseCookieContainer": false,
+        "UseTracing": false,
+        "UseProxy": true,
+        "MaxConnectionsPerServer": 2147483647
+      },
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9001
+        },
+        {
+          "Host": "localhost",
+          "Port": 9002
+        },
+        {
+          "Host": "localhost",
+          "Port": 9003
+        }
+      ],
+      "UpstreamHost": null,
+      "Key": null,
+      "DelegatingHandlers": [],
+      "Priority": 1,
+      "Timeout": 0,
+      "DangerousAcceptAnyServerCertificateValidator": false,
+      "SecurityOptions": {
+        "IPAllowedList": [],
+        "IPBlockedList": []
+      },
+      "DownstreamHttpVersion": null
     }
   ],
+  "DynamicReRoutes": [],
+  "Aggregates": [],
   "GlobalConfiguration": {
-    "ServiceDiscoveryProvider": {
-      "Host": "localhost",
-      "Port": 8500,
-      "Type": "Consul"
-    }
+    "RequestIdKey": null,
+    "RateLimitOptions": {
+      "ClientIdHeader": "ClientId",
+      "QuotaExceededMessage": null,
+      "RateLimitCounterPrefix": "ocelot",
+      "DisableRateLimitHeaders": false,
+      "HttpStatusCode": 429
+    },
+    "QoSOptions": {
+      "ExceptionsAllowedBeforeBreaking": 0,
+      "DurationOfBreak": 0,
+      "TimeoutValue": 0
+    },
+    "BaseUrl": null,
+    "LoadBalancerOptions": {
+      "Type": null,
+      "Key": null,
+      "Expiry": 0
+    },
+    "DownstreamScheme": null,
+    "HttpHandlerOptions": {
+      "AllowAutoRedirect": false,
+      "UseCookieContainer": false,
+      "UseTracing": false,
+      "UseProxy": true,
+      "MaxConnectionsPerServer": 2147483647
+    },
+    "DownstreamHttpVersion": null
   },
   "SwaggerEndPoints": [
     {

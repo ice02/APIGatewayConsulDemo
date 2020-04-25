@@ -7,6 +7,7 @@ using Microsoft.Extensions.Hosting;
 using Ocelot.Administration;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
+using Ocelot.Provider.Eureka;
 using Ocelot.Provider.Polly;
 using System.Collections.Generic;
 
@@ -35,8 +36,9 @@ namespace ToolboxApi.Gateway
             .ConfigureServices(services =>
             {
                 services.AddOcelot()
-                    .AddPolly();
-                    //.AddAdministration("/administration", "secret");
+                    .AddPolly()
+                    .AddEureka();
+                //.AddAdministration("/administration", "secret");
                 services.AddSwaggerForOcelot(Configuration);
             })
             .Configure(app =>

@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Steeltoe.Discovery.Client;
 
 namespace APIService3
 {
@@ -27,6 +28,7 @@ namespace APIService3
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddConsulConfig(Configuration);
+            services.AddDiscoveryClient(Configuration);
 
             services.AddControllers();
         }
@@ -45,6 +47,7 @@ namespace APIService3
 
             //app.UseAuthorization();
             app.UseConsul(Configuration);
+            app.UseDiscoveryClient();
 
             app.UseEndpoints(endpoints =>
             {

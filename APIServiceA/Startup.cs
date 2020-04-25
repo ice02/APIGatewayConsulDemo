@@ -6,6 +6,7 @@
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Common;
+    using Steeltoe.Discovery.Client;
 
     public class Startup
     {
@@ -19,6 +20,8 @@
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddConsulConfig(Configuration);
+            services.AddDiscoveryClient(Configuration);
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
@@ -30,6 +33,7 @@
             }
 
             app.UseConsul(Configuration);
+            app.UseDiscoveryClient();
 
             app.UseMvc();
         }
