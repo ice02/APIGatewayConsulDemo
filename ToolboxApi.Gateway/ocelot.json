@@ -15,7 +15,15 @@
       ],
       "UpstreamPathTemplate": "/api/v1/{url}",
       "UpstreamHttpMethod": [ "Get", "Set", "Put", "Post", "Delete" ],
-      "SwaggerKey": "ToolboxApi"
+      "SwaggerKey": "ToolboxApi",
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      },
+      "QoSOptions": {
+        "ExceptionsAllowedBeforeBreaking": 2,
+        "DurationOfBreak": 1000,
+        "TimeoutValue": 5000
+      }
     },
     {
       "DownstreamPathTemplate": "/api/v2/{url}",
@@ -24,11 +32,18 @@
         {
           "Host": "localhost",
           "Port": 6003
+        },
+        {
+          "Host": "localhost",
+          "Port": 6002
         }
       ],
       "UpstreamPathTemplate": "/api/v2/{url}",
       "UpstreamHttpMethod": [ "Get", "Set", "Put", "Post", "Delete" ],
-      "SwaggerKey": "ToolboxApi"
+      "SwaggerKey": "ToolboxApi",
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      }
     }
   ],
 
