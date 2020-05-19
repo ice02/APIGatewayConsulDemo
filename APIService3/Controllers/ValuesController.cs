@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 namespace APIService3.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/v2/[controller]")]
     public class ValuesController : ControllerBase
     {
         private readonly ILogger<ValuesController> _logger;

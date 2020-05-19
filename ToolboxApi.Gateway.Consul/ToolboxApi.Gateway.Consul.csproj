@@ -10,9 +10,11 @@
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.8" />
     <PackageReference Include="MMLib.SwaggerForOcelot" Version="1.10.5" />
     <PackageReference Include="Ocelot" Version="15.0.6" />
-    <PackageReference Include="Ocelot.Administration" Version="15.0.6" />
-    <PackageReference Include="Ocelot.Provider.Consul" Version="15.0.6" />
     <PackageReference Include="Ocelot.Provider.Polly" Version="15.0.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\External\Ocelot.Provider.Consul-develop\src\Ocelot.Provider.Consul\Ocelot.Provider.Consul.csproj" />
   </ItemGroup>
 
   <ItemGroup>

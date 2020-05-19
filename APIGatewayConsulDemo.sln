@@ -8,7 +8,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Common\Common.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "APIServiceB", "APIServiceB\APIServiceB.csproj", "{46E036E5-F84B-4336-A01A-0EC96E6A7913}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{3A41B738-B442-43B9-AE5F-BE18367C1BA0}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05 - Scripts", "05 - Scripts", "{3A41B738-B442-43B9-AE5F-BE18367C1BA0}"
 	ProjectSection(SolutionItems) = preProject
 		consul_config.json = consul_config.json
 		Install.ps1 = Install.ps1
@@ -16,15 +16,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{3A41
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "APIService3", "APIService3\APIService3.csproj", "{567BE164-BAA7-43AC-AA21-8626DF5B2957}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{F419CAC4-D8EF-4C0F-8863-12397218A3CD}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04 - Services", "04 - Services", "{F419CAC4-D8EF-4C0F-8863-12397218A3CD}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateways", "Gateways", "{0A7B4D79-43D4-4A16-95D6-2C2815E7248D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 - Gateways", "01 - Gateways", "{0A7B4D79-43D4-4A16-95D6-2C2815E7248D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToolboxApi.Gateway", "ToolboxApi.Gateway\ToolboxApi.Gateway.csproj", "{0A1D7AAE-F924-4EC9-846A-C93AC0BDD2F4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToolboxApi.Gateway.Consul", "ToolboxApi.Gateway.Consul\ToolboxApi.Gateway.Consul.csproj", "{D4595E61-CBCA-49D8-990B-73C965B1917B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToolboxApi.Gateway.Eureka", "ToolboxApi.Gateway.Eureka\ToolboxApi.Gateway.Eureka.csproj", "{0BFDDCBD-2667-4F63-A869-BDDA780F2B14}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi", "..\..\..\..\..\Devs\MDW\RoleBasedAuthorisations\aspnet-core-3-role-based-authorization-api-master\WebApi.csproj", "{4B799A22-9DD1-42D8-B025-6929C5BCE785}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00 - Packages", "00 - Packages", "{619B79EE-F943-4622-A2F4-65B39988CBA9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ocelot.Provider.Consul", "..\External\Ocelot.Provider.Consul-develop\src\Ocelot.Provider.Consul\Ocelot.Provider.Consul.csproj", "{8C55DD47-FBDA-456F-AEDA-F6280F84A8ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ocelot.Tracing", "Ocelot.Tracing\Ocelot.Tracing.csproj", "{9D632B57-E34C-462B-BC05-38C0684AB2EF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -60,6 +68,18 @@ Global
 		{0BFDDCBD-2667-4F63-A869-BDDA780F2B14}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0BFDDCBD-2667-4F63-A869-BDDA780F2B14}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0BFDDCBD-2667-4F63-A869-BDDA780F2B14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B799A22-9DD1-42D8-B025-6929C5BCE785}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B799A22-9DD1-42D8-B025-6929C5BCE785}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B799A22-9DD1-42D8-B025-6929C5BCE785}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B799A22-9DD1-42D8-B025-6929C5BCE785}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C55DD47-FBDA-456F-AEDA-F6280F84A8ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C55DD47-FBDA-456F-AEDA-F6280F84A8ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C55DD47-FBDA-456F-AEDA-F6280F84A8ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C55DD47-FBDA-456F-AEDA-F6280F84A8ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D632B57-E34C-462B-BC05-38C0684AB2EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D632B57-E34C-462B-BC05-38C0684AB2EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D632B57-E34C-462B-BC05-38C0684AB2EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D632B57-E34C-462B-BC05-38C0684AB2EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -71,6 +91,9 @@ Global
 		{0A1D7AAE-F924-4EC9-846A-C93AC0BDD2F4} = {0A7B4D79-43D4-4A16-95D6-2C2815E7248D}
 		{D4595E61-CBCA-49D8-990B-73C965B1917B} = {0A7B4D79-43D4-4A16-95D6-2C2815E7248D}
 		{0BFDDCBD-2667-4F63-A869-BDDA780F2B14} = {0A7B4D79-43D4-4A16-95D6-2C2815E7248D}
+		{4B799A22-9DD1-42D8-B025-6929C5BCE785} = {F419CAC4-D8EF-4C0F-8863-12397218A3CD}
+		{8C55DD47-FBDA-456F-AEDA-F6280F84A8ED} = {619B79EE-F943-4622-A2F4-65B39988CBA9}
+		{9D632B57-E34C-462B-BC05-38C0684AB2EF} = {619B79EE-F943-4622-A2F4-65B39988CBA9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {46FFA1D3-8629-4F7C-9F0B-BADA550118AE}

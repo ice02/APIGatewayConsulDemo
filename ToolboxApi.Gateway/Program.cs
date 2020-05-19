@@ -4,11 +4,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Ocelot.Administration;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 using Ocelot.Provider.Polly;
-using System.Collections.Generic;
 
 namespace ToolboxApi.Gateway
 {
@@ -34,9 +32,13 @@ namespace ToolboxApi.Gateway
              })
             .ConfigureServices(services =>
             {
-                services.AddOcelot()
+                services
+                    .AddOcelot()
                     .AddPolly();
-                    //.AddAdministration("/administration", "secret");
+                //.AddAdministration("/administration", "secret");
+
+                //services.AddOcelotConfigEditor();
+                    
                 services.AddSwaggerForOcelot(Configuration);
             })
             .Configure(app =>
@@ -44,12 +46,9 @@ namespace ToolboxApi.Gateway
                 app
                 .UseSwaggerForOcelotUI(Configuration, opt =>
                 {
-                    opt.DownstreamSwaggerHeaders = new[]
-                    {
-                        new KeyValuePair<string, string>("Key", "Value"),
-                        new KeyValuePair<string, string>("Key2", "Value2"),
-                    };
+                    
                 })
+                //.UseOcelotConfigEditor() // use only with 2.2 for moment
                 .UseOcelot()
                 .Wait();
             });

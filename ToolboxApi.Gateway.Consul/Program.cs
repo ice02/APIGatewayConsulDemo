@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Ocelot.Administration;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 using Ocelot.Provider.Consul;
@@ -52,6 +51,7 @@ namespace ToolboxApi.Gateway
                         new KeyValuePair<string, string>("Key", "Value"),
                         new KeyValuePair<string, string>("Key2", "Value2"),
                     };
+                    opt.PathToSwaggerGenerator = "/swagger/docs";
                 })
                 .UseOcelot()
                 .Wait();

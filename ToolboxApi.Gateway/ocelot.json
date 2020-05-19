@@ -1,114 +1,58 @@
 {
   "ReRoutes": [
     {
-      "DownstreamPathTemplate": "/{url}",
-      "UpstreamPathTemplate": "/{url}",
-      "UpstreamHttpMethod": [
-        "Get"
-      ],
-      "ServiceName": "ToolboxAPI",
-      "ServiceNamespace": null,
+      "DownstreamPathTemplate": "/api/v1/{url}",
       "DownstreamScheme": "http",
-      "QoSOptions": {
-        "ExceptionsAllowedBeforeBreaking": 3,
-        "DurationOfBreak": 1000,
-        "TimeoutValue": 5000
-      },
-      "LoadBalancerOptions": {
-        "Type": "RoundRobin",
-        "Key": null,
-        "Expiry": 0
-      },
-      "RateLimitOptions": {
-        "ClientWhitelist": [],
-        "EnableRateLimiting": false,
-        "Period": null,
-        "PeriodTimespan": 0.0,
-        "Limit": 0
-      },
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": null,
-        "AllowedScopes": []
-      },
-      "HttpHandlerOptions": {
-        "AllowAutoRedirect": false,
-        "UseCookieContainer": false,
-        "UseTracing": false,
-        "UseProxy": true,
-        "MaxConnectionsPerServer": 2147483647
-      },
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 9001
+          "Port": 6001
         },
         {
           "Host": "localhost",
-          "Port": 9002
-        },
-        {
-          "Host": "localhost",
-          "Port": 9003
+          "Port": 6002
         }
       ],
-      "UpstreamHost": null,
-      "Key": null,
-      "DelegatingHandlers": [],
-      "Priority": 1,
-      "Timeout": 0,
-      "DangerousAcceptAnyServerCertificateValidator": false,
-      "SecurityOptions": {
-        "IPAllowedList": [],
-        "IPBlockedList": []
-      },
-      "DownstreamHttpVersion": null
+      "UpstreamPathTemplate": "/api/v1/{url}",
+      "UpstreamHttpMethod": [ "Get", "Set", "Put", "Post", "Delete" ],
+      "SwaggerKey": "ToolboxApi"
+    },
+    {
+      "DownstreamPathTemplate": "/api/v2/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 6003
+        }
+      ],
+      "UpstreamPathTemplate": "/api/v2/{url}",
+      "UpstreamHttpMethod": [ "Get", "Set", "Put", "Post", "Delete" ],
+      "SwaggerKey": "ToolboxApi"
     }
   ],
-  "DynamicReRoutes": [],
-  "Aggregates": [],
-  "GlobalConfiguration": {
-    "RequestIdKey": null,
-    "RateLimitOptions": {
-      "ClientIdHeader": "ClientId",
-      "QuotaExceededMessage": null,
-      "RateLimitCounterPrefix": "ocelot",
-      "DisableRateLimitHeaders": false,
-      "HttpStatusCode": 429
-    },
-    "QoSOptions": {
-      "ExceptionsAllowedBeforeBreaking": 0,
-      "DurationOfBreak": 0,
-      "TimeoutValue": 0
-    },
-    "BaseUrl": null,
-    "LoadBalancerOptions": {
-      "Type": null,
-      "Key": null,
-      "Expiry": 0
-    },
-    "DownstreamScheme": null,
-    "HttpHandlerOptions": {
-      "AllowAutoRedirect": false,
-      "UseCookieContainer": false,
-      "UseTracing": false,
-      "UseProxy": true,
-      "MaxConnectionsPerServer": 2147483647
-    },
-    "DownstreamHttpVersion": null
-  },
+
+
   "SwaggerEndPoints": [
     {
-      "Key": "ToolboxAPI",
+      "Key": "ToolboxApi",
       "Config": [
         {
-          "Name": "Toolbox Service API",
+          "Name": "My API",
           "Version": "v1",
-          "Service": {
-            "Name": "ToolboxAPI",
-            "Path": "/swagger/v1/swagger.json"
-          }
+          "Url": "http://localhost:6001/swagger/v1/swagger.json"
+        },
+        {
+          "Name": "My API",
+          "Version": "v2",
+          "Url": "http://localhost:6003/swagger/v2/swagger.json"
         }
       ]
     }
-  ]
+  ],
+
+  "GlobalConfiguration": {
+    //"RequestIdKey": "OcRequestId",
+    //"AdministrationPath": "/administration"
+  }
 }

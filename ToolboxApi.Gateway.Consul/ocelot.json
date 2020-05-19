@@ -2,20 +2,21 @@
   "ReRoutes": [
     {
       "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "/{url}",
+      "DownstreamPathTemplate": "/api/{version}/{everything}",
       "DownstreamScheme": "http",
       "ServiceName": "ToolboxAPI",
       "LoadBalancerOptions": {
         "Type": "RoundRobin"
       },
-      "UpstreamPathTemplate": "/{url}",
+      "UpstreamPathTemplate": "/api/{version}/{everything}",
       "UpstreamHttpMethod": [ "Get" ],
       "ReRoutesCaseSensitive": false,
       "QoSOptions": {
         "ExceptionsAllowedBeforeBreaking": 3,
         "DurationOfBreak": 1000,
         "TimeoutValue": 5000
-      }
+      },
+      "SwaggerKey": "ToolboxAPI"
     }
   ],
   "GlobalConfiguration": {
@@ -35,6 +36,14 @@
           "Service": {
             "Name": "ToolboxAPI",
             "Path": "/swagger/v1/swagger.json"
+          }
+        },
+        {
+          "Name": "Toolbox Service API",
+          "Version": "v2",
+          "Service": {
+            "Name": "ToolboxAPI",
+            "Path": "/swagger/v2/swagger.json"
           }
         }
       ]

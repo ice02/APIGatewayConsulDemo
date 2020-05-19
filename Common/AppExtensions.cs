@@ -1,6 +1,7 @@
 ﻿namespace Common
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using Consul;
     using Microsoft.AspNetCore.Builder;
@@ -29,7 +30,7 @@
             var logger = app.ApplicationServices.GetRequiredService<ILoggerFactory>().CreateLogger("AppExtensions");
             var lifetime = app.ApplicationServices.GetRequiredService<IApplicationLifetime>();
 
-            // TODO : Compatibility with https/iis - now work only for kestrel
+            // TODO : Compatibility with httpsys/iis - now work only for kestrel
             if (!(app.Properties["server.Features"] is FeatureCollection features)) return app;
 
             var addresses = features.Get<IServerAddressesFeature>();
@@ -39,12 +40,16 @@
 
             var uri = new Uri(address);
             var serviceName = configuration.GetValue<string>("Service:Name");
+            var metas = new Dictionary<string, string>();
+            metas.Add("Controller", "Apps"); // TODO : Replace by controller kind
             var registration = new AgentServiceRegistration()
             {
                 ID = $"{serviceName}-{ uri.Host }-{uri.Port}",
                 Name = serviceName,
                 Address = $"{uri.Host}",
-                Port = uri.Port
+                Port = uri.Port,
+                Meta = metas,
+                Tags = new string[] { "version-1", "version-2" } // TODO : replace by versions managed by this host, based on version discovered
             };
 
             logger.LogInformation($"Registering with Consul with ID = { serviceName}-{ uri.Host }-{ uri.Port}, Name = {serviceName}, Address = {uri.Host}, Port = {uri.Port}");

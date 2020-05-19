@@ -7,6 +7,7 @@
     using Microsoft.Extensions.DependencyInjection;
     using Common;
     using Steeltoe.Discovery.Client;
+    using Microsoft.OpenApi.Models;
 
     public class Startup
     {
@@ -23,6 +24,11 @@
             services.AddDiscoveryClient(Configuration);
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+            });
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -33,7 +39,14 @@
             }
 
             app.UseConsul(Configuration);
-            app.UseDiscoveryClient();
+            //app.UseDiscoveryClient();
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.RoutePrefix = "swagger";
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API");
+            });
 
             app.UseMvc();
         }

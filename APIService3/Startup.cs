@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 using Steeltoe.Discovery.Client;
 
 namespace APIService3
@@ -31,6 +32,11 @@ namespace APIService3
             services.AddDiscoveryClient(Configuration);
 
             services.AddControllers();
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v2", new OpenApiInfo { Title = "My API", Version = "v2" });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,7 +53,13 @@ namespace APIService3
 
             //app.UseAuthorization();
             app.UseConsul(Configuration);
-            app.UseDiscoveryClient();
+            //app.UseDiscoveryClient();
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v2/swagger.json", "My API");
+            });
 
             app.UseEndpoints(endpoints =>
             {
