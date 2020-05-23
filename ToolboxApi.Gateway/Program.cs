@@ -1,9 +1,13 @@
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 using Ocelot.Provider.Polly;
@@ -38,19 +42,32 @@ namespace ToolboxApi.Gateway
                 //.AddAdministration("/administration", "secret");
 
                 //services.AddOcelotConfigEditor();
-                    
+
+                //services.AddSwaggerGen(c =>
+                //{
+                //    c.SwaggerDoc("v1", new OpenApiInfo { Title = "API Gateway", Version = "v1" });
+                //});
+
                 services.AddSwaggerForOcelot(Configuration);
+
             })
             .Configure(app =>
             {
                 app
                 .UseSwaggerForOcelotUI(Configuration, opt =>
                 {
-                    
+                    //opt.ReConfigureUpstreamSwaggerJson = (HttpContext context, string swaggerJson) =>
+                    //{
+                    //    var swagger = JObject.Parse(swaggerJson);
+                    //    // ... alter upstream json
+                    //    return swagger.ToString(Formatting.Indented);
+                    //};
                 })
+                //.UseSwagger()
                 //.UseOcelotConfigEditor() // use only with 2.2 for moment
                 .UseOcelot()
                 .Wait();
             });
     }
+
 }

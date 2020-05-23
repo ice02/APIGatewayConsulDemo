@@ -32,7 +32,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00 - Packages", "00 - Packa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ocelot.Provider.Consul", "..\External\Ocelot.Provider.Consul-develop\src\Ocelot.Provider.Consul\Ocelot.Provider.Consul.csproj", "{8C55DD47-FBDA-456F-AEDA-F6280F84A8ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ocelot.Tracing", "Ocelot.Tracing\Ocelot.Tracing.csproj", "{9D632B57-E34C-462B-BC05-38C0684AB2EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ocelot.Tracing.Jaeger", "Ocelot.Tracing\Ocelot.Tracing.Jaeger.csproj", "{9D632B57-E34C-462B-BC05-38C0684AB2EF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 - Service Fabric", "02 - Service Fabric", "{9C39306A-49DB-442A-B47E-E23B60B38AC8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "06 - UI", "06 - UI", "{B08FD251-3A21-4199-9535-1671029A1C2C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ocelot.Configuration.UI", "Ocelot.Configuration.UI\Ocelot.Configuration.UI.csproj", "{ADAC72A4-B572-4609-95C1-92BA82C818CC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MMLib.SwaggerForOcelot", "MMLib.SwaggerForOcelot\MMLib.SwaggerForOcelot.csproj", "{F2F567B2-0B01-4596-AA4C-6D8F1D1FFC4C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -80,6 +88,14 @@ Global
 		{9D632B57-E34C-462B-BC05-38C0684AB2EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D632B57-E34C-462B-BC05-38C0684AB2EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D632B57-E34C-462B-BC05-38C0684AB2EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADAC72A4-B572-4609-95C1-92BA82C818CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADAC72A4-B572-4609-95C1-92BA82C818CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADAC72A4-B572-4609-95C1-92BA82C818CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADAC72A4-B572-4609-95C1-92BA82C818CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2F567B2-0B01-4596-AA4C-6D8F1D1FFC4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2F567B2-0B01-4596-AA4C-6D8F1D1FFC4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2F567B2-0B01-4596-AA4C-6D8F1D1FFC4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2F567B2-0B01-4596-AA4C-6D8F1D1FFC4C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -94,6 +110,8 @@ Global
 		{4B799A22-9DD1-42D8-B025-6929C5BCE785} = {F419CAC4-D8EF-4C0F-8863-12397218A3CD}
 		{8C55DD47-FBDA-456F-AEDA-F6280F84A8ED} = {619B79EE-F943-4622-A2F4-65B39988CBA9}
 		{9D632B57-E34C-462B-BC05-38C0684AB2EF} = {619B79EE-F943-4622-A2F4-65B39988CBA9}
+		{ADAC72A4-B572-4609-95C1-92BA82C818CC} = {B08FD251-3A21-4199-9535-1671029A1C2C}
+		{F2F567B2-0B01-4596-AA4C-6D8F1D1FFC4C} = {619B79EE-F943-4622-A2F4-65B39988CBA9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {46FFA1D3-8629-4F7C-9F0B-BADA550118AE}

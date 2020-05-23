@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Butterfly.Client" Version="0.0.8" />
+    <PackageReference Include="Butterfly.Client.AspNetCore" Version="0.0.8" />
+    <PackageReference Include="Jaeger" Version="0.3.7" />
+    <PackageReference Include="Ocelot" Version="15.0.6" />
+  </ItemGroup>
+
+</Project>

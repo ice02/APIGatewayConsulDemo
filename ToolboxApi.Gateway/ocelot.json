@@ -14,7 +14,7 @@
         }
       ],
       "UpstreamPathTemplate": "/api/v1/{url}",
-      "UpstreamHttpMethod": [ "Get", "Set", "Put", "Post", "Delete" ],
+      "UpstreamHttpMethod": [ "Get" ],
       "SwaggerKey": "ToolboxApi",
       "LoadBalancerOptions": {
         "Type": "LeastConnection"
@@ -39,7 +39,7 @@
         }
       ],
       "UpstreamPathTemplate": "/api/v2/{url}",
-      "UpstreamHttpMethod": [ "Get", "Set", "Put", "Post", "Delete" ],
+      "UpstreamHttpMethod": [ "Get" ],
       "SwaggerKey": "ToolboxApi",
       "LoadBalancerOptions": {
         "Type": "LeastConnection"
@@ -51,6 +51,7 @@
   "SwaggerEndPoints": [
     {
       "Key": "ToolboxApi",
+      "TransformByOcelotConfig": false,
       "Config": [
         {
           "Name": "My API",
@@ -63,7 +64,19 @@
           "Url": "http://localhost:6003/swagger/v2/swagger.json"
         }
       ]
-    }
+      }
+      //  ,
+      //{
+      //  "Key": "gateway",
+      //  "TransformByOcelotConfig": false,
+      //  "Config": [
+      //    {
+      //      "Name": "Gateway",
+      //      "Version": "v1",
+      //      "Url": "http://localhost:9000/swagger/v1/swagger.json"
+      //    }
+      //  ]
+      //}
   ],
 
   "GlobalConfiguration": {
